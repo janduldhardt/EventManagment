@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeScreen">
+
+    <TextView
+        android:id="@+id/text_currentStudentid_header"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="16dp"
+        android:text="6118135"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_currentStudentName_header"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:text="Jan Duldhardt"
+        app:layout_constraintStart_toStartOf="@+id/text_currentStudentid_header"
+        app:layout_constraintTop_toBottomOf="@+id/text_currentStudentid_header" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/main_nav"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        app:itemBackground="@color/colorPrimaryDark"
+        app:itemIconTint="@color/nav_item_colors"
+        app:itemTextColor="@color/nav_item_colors"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/nav_items" />
+
+    <FrameLayout
+        android:id="@+id/main_frame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_currentStudentName_header">
+
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>
