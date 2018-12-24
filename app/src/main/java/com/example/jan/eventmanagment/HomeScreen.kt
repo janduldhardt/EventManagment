@@ -25,6 +25,8 @@ class HomeScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_screen)
+        findViewById<View>(R.id.nav_home).isClickable = false
+
 
 
 
@@ -49,9 +51,16 @@ class HomeScreen : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> {
                     setFragment(Fragment_Home())
+                    findViewById<View>(R.id.nav_home).isClickable = false
+                    findViewById<View>(R.id.nav_EventHome).isClickable = true
+
                 }
                 R.id.nav_EventHome -> {
                     setFragment(Fragment_EventHome())
+                    findViewById<View>(R.id.nav_EventHome).isClickable = false
+                    findViewById<View>(R.id.nav_home).isClickable = true
+
+
                 }
             }
             true

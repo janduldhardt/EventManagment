@@ -21,19 +21,19 @@ class Login : AppCompatActivity() {
         val userThree = Student("3", "Ben", "Seifert", "BBA")
 
         btn_studentOne.setOnClickListener {
-            (this.application as currentStudent).setStudent(userOne)
+            (this.application as currentStudent).currentStudent = userOne
             refresh()
         }
 
         btn_studentTwo.setOnClickListener {
-            (this.application as currentStudent).setStudent(userTwo)
+            (this.application as currentStudent).currentStudent = userTwo
             refresh()
 
         }
 
 
         btn_studentThree.setOnClickListener {
-            (this.application as currentStudent).setStudent(userThree)
+            (this.application as currentStudent).currentStudent = userThree
             refresh()
         }
 

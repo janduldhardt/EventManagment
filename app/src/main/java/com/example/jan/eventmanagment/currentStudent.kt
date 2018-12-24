@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class currentStudent : Application() {
     lateinit var currentStudent : Student
 
-    fun setStudent(s1 : Student) {
+    fun setcuStudent(s1 : Student) {
         this.currentStudent = s1
     }
 

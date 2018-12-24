@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.activity_home_screen.*
 import kotlinx.android.synthetic.main.fragment_fragment__event_home.*
 import kotlinx.android.synthetic.main.fragment_fragment__home.*
 import retrofit2.Call
@@ -32,6 +33,8 @@ class Fragment_Home : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        (activity as HomeScreen).loadingPanel.setVisibility(View.VISIBLE)
+
 
         loggedStudentId = (activity as HomeScreen).loggedStudentId
 
@@ -59,6 +62,7 @@ class Fragment_Home : Fragment() {
             }
 
             override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
+                (activity as HomeScreen).loadingPanel.setVisibility(View.GONE)
                 currentStudentEvents  = response.body()!!
                 RecyclerView_home.apply {
                     setHasFixedSize(true)

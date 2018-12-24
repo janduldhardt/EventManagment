@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.activity_home_screen.*
 import kotlinx.android.synthetic.main.fragment_fragment__event_home.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -31,6 +32,7 @@ class Fragment_EventHome : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        (activity as HomeScreen).loadingPanel.setVisibility(View.VISIBLE)
 
 
         loadAllEvents()
@@ -53,6 +55,7 @@ class Fragment_EventHome : Fragment() {
             }
 
             override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
+                (activity as HomeScreen).loadingPanel.setVisibility(View.GONE)
                 val events : List<Event>? = response.body()
                 RecyclerView_eventHome.apply {
                     setHasFixedSize(true)
