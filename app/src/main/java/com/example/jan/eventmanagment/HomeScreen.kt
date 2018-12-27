@@ -1,26 +1,22 @@
 package com.example.jan.eventmanagment
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_home_screen.*
-import kotlinx.android.synthetic.main.fragment_fragment__event_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class HomeScreen : AppCompatActivity() {
 
-    lateinit var loggedStudent : Student
-    lateinit var loggedStudentId : String
-    lateinit var currentStudentEvents : List<Event>
-    lateinit var retrofit : RetrofitService
-    lateinit var eventList : List<Event>
+    lateinit var loggedStudent: Student
+    lateinit var loggedStudentId: String
+    lateinit var currentStudentEvents: List<Event>
+    lateinit var retrofit: RetrofitService
+    lateinit var eventList: List<Event>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,12 +38,12 @@ class HomeScreen : AppCompatActivity() {
 
         getUsersEventList()
 
+        image_createEvent.setOnClickListener {
+            val intent = Intent(this@HomeScreen, CreateEventActivity::class.java)
+            startActivity(intent)
+        }
 
-
-
-
-
-        main_nav.setOnNavigationItemSelectedListener {item ->
+        main_nav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
                     setFragment(Fragment_Home())
@@ -84,7 +80,7 @@ class HomeScreen : AppCompatActivity() {
     }
 
 
-    private fun setFragment(fragment : Fragment) {
+    private fun setFragment(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.main_frame, fragment)
                 .commit()

@@ -1,5 +1,6 @@
 package com.example.jan.eventmanagment
 
+import android.telecom.CallScreeningService
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -15,6 +16,10 @@ interface API {
 
     @POST("/event/submitenrollment")
     fun createEnrollment(@Body enroll: Enrollment): Call<String>
+
+    @POST("/event/addevent")
+    fun createEvent(@Body event: PostEvent): Call<Void>
+
 
 
     @PUT("/event/cancellation")

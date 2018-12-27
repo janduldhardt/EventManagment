@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.gson.GsonBuilder
@@ -37,17 +38,8 @@ class EventInfo : AppCompatActivity() {
 
         loggedStudentId = (this.application as currentStudent).getStudent().studentId
         eventid = intent.getStringExtra("EXTRA_eventId")
-//        text_eventName.setText(eventid)
-        Toast.makeText(this, eventid, Toast.LENGTH_SHORT).show()
 
-        isEnrolledCheck()
-
-
-
-
-
-
-        getInfo()
+        getInfo() //Starts retrofit call and setText to all Views and makes the constraint layout visible
 
         btn_enroll.setOnClickListener {
             if(isEnrolled) {
@@ -59,6 +51,22 @@ class EventInfo : AppCompatActivity() {
     }
 
     private fun cancelEnrollment() {
+        val builder = AlertDialog.Builder(this@EventInfo)
+//        builder.setTitle("")
+        builder.setMessage("Are you sure you want to cancel this event?")
+        builder.setPositiveButton("Yes"){_, _ ->
+            cancelEnrollmentConfirmed()
+//            Toast.makeText(this,"Confirmed!!",Toast.LENGTH_SHORT).show()
+        }
+        builder.setNegativeButton("No"){_, _ ->
+            //            Toast.makeText(this,"Canceled!!",Toast.LENGTH_SHORT).show()
+        }
+
+        val dialog = builder.create().show()
+    }
+
+
+    private fun cancelEnrollmentConfirmed() {
         val retr = RetrofitService()
         retr.start(this)
         val client = retr.client
@@ -170,10 +178,10 @@ class EventInfo : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<Event>, response: Response<Event>) {
+                isEnrolledCheck()
                 Toast.makeText(this@EventInfo,"Sucess", Toast.LENGTH_SHORT).show()
                 val eventObject = response.body()
                 text_eventName.setText(eventObject?.eventTitle)
-//                text_eventDateStart.setText(eventObject?.eventDateTimeStart)
                 showTime(eventObject?.eventDateTimeStart)
                 text_eventVenue.setText(eventObject?.eventVenue)
                 text_eventOrganizer.setText(eventObject?.eventOrganizer)
@@ -184,6 +192,8 @@ class EventInfo : AppCompatActivity() {
                 Glide.with(this@EventInfo)
                         .load(eventObject?.eventImage)
                         .into(image_eventImage)
+
+                constraint_layout_eventInfo.setVisibility(View.VISIBLE)
             }
 
         }
