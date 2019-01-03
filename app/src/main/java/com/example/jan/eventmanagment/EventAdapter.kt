@@ -12,7 +12,7 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_event.view.*
-
+import java.text.SimpleDateFormat
 
 
 class EventAdapter(private val context : Context, val inputList : List<Event>?) :
@@ -41,6 +41,20 @@ class EventAdapter(private val context : Context, val inputList : List<Event>?) 
         override fun onBindViewHolder(p0: EventAdapter.ViewHolder, p1: Int) {
             var item = inputList?.get(p1)
             p0.view.text_eventName.setText(item?.eventTitle)
+            p0.view.text_eventLocation.setText(item?.eventVenue)
+
+            val eventTimes = displayFormatTime(item!!.eventDateTimeStart, item?.eventDateTimeEnd)
+            p0.view.text_eventDate.setText(eventTimes)
+
+            if (item?.eventAvalibility == null){
+                p0.view.text_eventSeatsLeft.visibility = View.GONE
+            } else {
+                p0.view.text_eventSeatsLeft.setText(item.eventAvalibility.toString() + " SEATS LEFT")
+            }
+
+
+
+
 
             val options = RequestOptions()
             options.centerCrop()
@@ -56,6 +70,34 @@ class EventAdapter(private val context : Context, val inputList : List<Event>?) 
                 context.startActivity(intent)
             }
         }
+
+
+
+    private fun reformatTime(inputString: String?): String {
+        val fromServer = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+        val myFormat = SimpleDateFormat("dd/MM/yyyy HH:mm")
+        val reformattedStr = myFormat.format(fromServer.parse(inputString))
+        return reformattedStr
+    }
+
+    fun displayFormatTime(s1 : String, s2 : String?) : String{
+        if (s2.isNullOrEmpty()){
+            return reformatTime(s1)
+        } else {
+
+            val sf1 =  reformatTime(s1)
+            val sf2 = reformatTime(s2)
+
+            val subsf1 = sf1.subSequence(0,9)
+            if (subsf1 in sf2) {
+                return sf1 + " - " + sf2.subSequence(sf2.length-6, sf2.length-1)
+            } else {
+                return sf1 + " - " + sf2
+            }
+        }
+    }
+
+
 
 
 

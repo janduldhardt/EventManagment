@@ -3,7 +3,10 @@ package com.example.jan.eventmanagment
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_create_event.*
 import kotlinx.android.synthetic.main.activity_event_info.*
@@ -18,7 +21,7 @@ class EventPreviewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_event_preview)
+        setContentView(R.layout.activity_event_info)
 
 
         // Here we assign all variables with a String of its corrosponding the EditText
@@ -39,24 +42,28 @@ class EventPreviewActivity : AppCompatActivity() {
         val pCapacity = checkNullOrString("pCapacity") //Can be null
         val pTicketPrice = checkNullOrString("pTicketPrice")  //if no entry price is equal to zero
 
-        preview_title.setText(pTitle)
-        preview_startDate.setText(pStartDate)
-        preview_endDate.setText(pEndDate)
-        preview_venue.setText(pVenue)
-//        preview_imageUrl.setText(pImageUrl)
-        preview_organizer.setText(pOrganizer)
-        preview_description.setText(pDescription)
-        preview_termsAndConditons.setText(pTermsAndConditions)
-        preview_telephoneNumber.setText(pTelephoneNumber)
-        preview_facebook.setText(pFacebook)
-        preview_line.setText(pLine)
-        preview_deadline.setText(pDeadline)
-        preview_capacity.setText(pCapacity)
-        preview_ticketPrice.setText(pTicketPrice)
+        text_eventInfo_title.setText(pTitle)
+        text_eventInfo_venue.setText(pVenue)
+        text_eventInfo_date.setText(pStartDate)
+        text_eventInfo_description.setText(pDescription)
+        text_eventInfo_termsAndConditions.setText(pTermsAndConditions)
+        text_eventInfo_phoneNumber.setText(pTelephoneNumber)
+        text_eventInfo_line.setText(pLine)
+        text_eventInfo_facebook.setText(pFacebook)
+        btn_eventInfo_enrollcancel.setText("Create Event")
+
+        val options = RequestOptions()
+        options.centerCrop()
+        Glide.with(this@EventPreviewActivity)
+                .load(pImageUrl)
+                .apply(options)
+                .into(image_eventInfo_eventImage)
+
+        constraint_layout_eventInfo.setVisibility(View.VISIBLE)
 
 
 
-        btn_preview_createEvent.setOnClickListener {
+        btn_eventInfo_enrollcancel.setOnClickListener {
 
             val newEvent = PostEvent(pTitle, pStartDate, pEndDate, pVenue, pImageUrl,
                     pOrganizer, pDescription, pTermsAndConditions, pTelephoneNumber,
@@ -103,7 +110,6 @@ class EventPreviewActivity : AppCompatActivity() {
         } else {
             return null
         }
-
     }
 
 }

@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_event_info.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -41,7 +42,7 @@ class EventInfo : AppCompatActivity() {
 
         getInfo() //Starts retrofit call and setText to all Views and makes the constraint layout visible
 
-        btn_enroll.setOnClickListener {
+        btn_eventInfo_enrollcancel.setOnClickListener {
             if(isEnrolled) {
                 cancelEnrollment()
             } else {
@@ -106,7 +107,7 @@ class EventInfo : AppCompatActivity() {
                     }
                 }
                 if(isEnrolled) {
-                    btn_enroll.setText("Cancel enrollment")
+                    btn_eventInfo_enrollcancel.setText("Cancel enrollment")
                 }
             }
 
@@ -150,7 +151,7 @@ class EventInfo : AppCompatActivity() {
         call.enqueue(object : Callback<String> {
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Toast.makeText(this@EventInfo, t.toString(), Toast.LENGTH_LONG).show()
-                text_eventTermsAndConditions.setText(t.toString())
+                text_eventInfo_termsAndConditions.setText(t.toString())
             }
 
             override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -181,17 +182,24 @@ class EventInfo : AppCompatActivity() {
                 isEnrolledCheck()
                 Toast.makeText(this@EventInfo,"Sucess", Toast.LENGTH_SHORT).show()
                 val eventObject = response.body()
-                text_eventName.setText(eventObject?.eventTitle)
+                text_eventInfo_title.setText(eventObject?.eventTitle)
                 showTime(eventObject?.eventDateTimeStart)
-                text_eventVenue.setText(eventObject?.eventVenue)
-                text_eventOrganizer.setText(eventObject?.eventOrganizer)
-                text_eventDescription.setText(eventObject?.eventDescription)
-                text_eventTermsAndConditions.setText(eventObject?.eventTermAndCondition)
+                text_eventInfo_venue.setText(eventObject?.eventVenue)
+//                text_eventInfo.setText(eventObject?.eventOrganizer)  //no Organizer
+                text_eventInfo_description.setText(eventObject?.eventDescription)
+                text_eventInfo_termsAndConditions.setText(eventObject?.eventTermAndCondition)
+                text_eventInfo_phoneNumber.setText(eventObject?.eventTelephoneNumber)
+                text_eventInfo_line.setText(eventObject?.eventLine)
+                text_eventInfo_facebook.setText(eventObject?.eventFacebook)
 
 
+
+                val options = RequestOptions()
+                options.centerCrop()
                 Glide.with(this@EventInfo)
                         .load(eventObject?.eventImage)
-                        .into(image_eventImage)
+                        .apply(options)
+                        .into(image_eventInfo_eventImage)
 
                 constraint_layout_eventInfo.setVisibility(View.VISIBLE)
             }
@@ -204,8 +212,8 @@ class EventInfo : AppCompatActivity() {
 
     private fun showTime(inputString : String?) {
         val fromUser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-        val myFormat = SimpleDateFormat("E dd'. 'MMM yyyy")
+        val myFormat = SimpleDateFormat("MMMM dd. HH:mm")
         val reformattedStr = myFormat.format(fromUser.parse(inputString))
-        text_eventDateStart.setText(reformattedStr)
+        text_eventInfo_date.setText(reformattedStr)
     }
 }

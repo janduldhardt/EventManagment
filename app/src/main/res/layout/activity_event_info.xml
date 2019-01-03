@@ -2,90 +2,215 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_layout_eventInfo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EventInfo"
-    android:id="@+id/constraint_layout_eventInfo"
-    android:visibility="gone"
-    >
+    android:visibility="gone">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:weightSum="100">
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_eventInfo_enrollcancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/text_eventName"
+            android:id="@+id/text_eventInfo_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="AU Freshy Day and Night 2018"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="Title"
-            android:textColor="#000"
-            android:textSize="20sp" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/text_eventVenue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Venue" />
+            <ImageView
+                android:layout_width="13sp"
+                android:layout_height="13sp"
+                android:layout_gravity="center"
+                android:src="@drawable/baseline_access_time_black_18dp" />
 
-        <TextView
-            android:id="@+id/text_eventDateStart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="DateStart" />
+            <TextView
+                android:id="@+id/text_eventInfo_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="5dp"
+
+                android:text="September 17, 2018"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="13sp"
+                android:layout_height="13sp"
+                android:layout_gravity="center"
+
+                android:src="@drawable/baseline_location_on_black_18dp" />
+
+            <TextView
+                android:id="@+id/text_eventInfo_venue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="5dp"
+                android:text="John Paul II Sports Center"
+                android:textSize="13sp" />
+
+        </LinearLayout>
 
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="90">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/image_eventImage"
+                    android:id="@+id/image_eventInfo_eventImage"
+
                     android:layout_width="match_parent"
-                    android:layout_height="200sp"
-                    />
+                    android:layout_height="170dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:src="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_eventOrganizer"
-                    android:text="Organizer"
-                    android:textColor="#000"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
-                <TextView
-                    android:id="@+id/text_eventDescription"
                     android:text="Description"
-                    android:textSize="30sp"
-                    android:textColor="#000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
+                    android:textColor="@color/black"
+                    android:textSize="27sp" />
+
                 <TextView
-                    android:id="@+id/text_eventTermsAndConditions"
-                    android:text="Terms and Conditions"
-                    android:textSize="30sp"
-                    android:textColor="#000"
-                    android:layout_width="match_parent"
+                    android:id="@+id/text_eventInfo_description"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:paddingBottom="10dp"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Phasellus convallis, ipsum eget pretium consectetur, quam risus luctus ipsum, sit amet
+            rutrum quam nibh a nibh. Vivamus eu felis eget tellus dapibus commodo. Donec dictum maximus
+            ligula, vel tempus est mollis eget." />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Terms and conditions"
+                    android:textColor="@color/black"
+                    android:textSize="27sp" />
+
+                <TextView
+                    android:id="@+id/text_eventInfo_termsAndConditions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Phasellus convallis, ipsum eget pretium consectetur, quam risus luctus ipsum, sit amet
+            rutrum quam nibh a nibh. Vivamus eu felis eget tellus dapibus commodo. Donec dictum maximus
+            ligula, vel tempus est mollis eget." />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact"
+                    android:textColor="@color/black"
+                    android:textSize="27sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="17sp"
+                        android:layout_height="17sp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/baseline_contact_phone_black_18dp" />
+
+                    <TextView
+                        android:id="@+id/text_eventInfo_phoneNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+
+                        android:paddingLeft="5dp"
+                        android:text="017656145"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="17sp"
+                        android:layout_height="17sp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/facebookicon" />
+
+                    <TextView
+                        android:id="@+id/text_eventInfo_facebook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+
+                        android:paddingLeft="5dp"
+                        android:text="017656145"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="17sp"
+                        android:layout_height="17sp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/lineicon" />
+
+                    <TextView
+                        android:id="@+id/text_eventInfo_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+
+                        android:paddingLeft="5dp"
+                        android:text="017656145"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
             </LinearLayout>
+
         </ScrollView>
 
-        <Button
-            android:id="@+id/btn_enroll"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="9"
-            android:text="Enroll"
-
-/>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_eventInfo_enrollcancel"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="ENROLL"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
