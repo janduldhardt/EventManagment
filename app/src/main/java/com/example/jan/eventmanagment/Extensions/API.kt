@@ -10,8 +10,11 @@ interface API {
     @GET("/event/getall")
     fun listAllEvents(): Call<List<Event>>
 
-    @GET("/event/geteventbyid/{eventID}")
-    fun getEventInfo(@Path("eventID") eventID: String): Call<Event>
+//    @GET("/event/geteventbyid/{eventID}")
+//    fun getEventInfo(@Path("eventID") eventID: String): Call<Event>
+
+    @GET("/event/geteventbyid/")
+    fun getEventInfo(@Query("eventid") eventID: String): Call<Event>
 
     @GET("/event/geteventsbystudentid/{studentId}")
     fun getEventsByStudentId(@Path("studentId") studentid: String): Call<List<Event>>

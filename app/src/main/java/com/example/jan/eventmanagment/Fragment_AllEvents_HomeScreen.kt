@@ -11,11 +11,10 @@ import android.widget.Toast
 import com.example.jan.eventmanagment.Extensions.API
 import com.example.jan.eventmanagment.Models.Event
 import kotlinx.android.synthetic.main.activity_home_screen.*
-import kotlinx.android.synthetic.main.fragment_fragment__event_home.*
+import kotlinx.android.synthetic.main.fragment_event_all_events.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.properties.Delegates
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,7 +38,7 @@ class Fragment_EventHome : Fragment() {
         (activity as HomeScreenActivity).loadingPanel.visibility = View.VISIBLE
         client = RetrofitService().client
         loadAllEvents()
-        return inflater.inflate(R.layout.fragment_fragment__event_home, container, false)
+        return inflater.inflate(R.layout.fragment_event_all_events, container, false)
     }
 
     private fun loadAllEvents() {

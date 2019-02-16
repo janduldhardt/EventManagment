@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.jan.eventmanagment.Models.Event
-import kotlinx.android.synthetic.main.fragment_event.view.*
+import kotlinx.android.synthetic.main.event_item_view.view.*
 import java.text.SimpleDateFormat
 
 class EventAdapter(private val context: Context, val inputList: List<Event>?) :
@@ -19,7 +19,7 @@ class EventAdapter(private val context: Context, val inputList: List<Event>?) :
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): EventAdapter.ViewHolder {
-        val view = LayoutInflater.from(p0.context).inflate(R.layout.fragment_event, p0, false)
+        val view = LayoutInflater.from(p0.context).inflate(R.layout.event_item_view, p0, false)
         return ViewHolder(view)
     }
 

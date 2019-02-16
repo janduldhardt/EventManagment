@@ -12,13 +12,10 @@ import com.example.jan.eventmanagment.Extensions.API
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.example.jan.eventmanagment.Models.Event
 import kotlinx.android.synthetic.main.activity_home_screen.*
-import kotlinx.android.synthetic.main.fragment_fragment__event_home.*
-import kotlinx.android.synthetic.main.fragment_fragment__home.*
+import kotlinx.android.synthetic.main.fragment_my_events.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
-import kotlin.properties.Delegates
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -45,7 +42,7 @@ class Fragment_Home : Fragment() {
         loadUserEvents()
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment__home, container, false)
+        return inflater.inflate(R.layout.fragment_my_events, container, false)
     }
 
     private fun loadUserEvents() {
