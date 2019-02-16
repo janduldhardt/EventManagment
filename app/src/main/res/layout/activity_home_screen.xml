@@ -38,7 +38,7 @@
         app:layout_constraintBottom_toTopOf="@+id/main_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_library_add_black_18dp" />
+        app:srcCompat="@drawable/ic_add" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/main_nav"
