@@ -52,7 +52,7 @@
         android:tint="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/baseline_location_on_black_18dp" />
+        app:srcCompat="@drawable/ic_location" />
 
     <ImageView
         android:id="@+id/time"
@@ -63,7 +63,7 @@
         android:tint="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/location"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/baseline_access_time_black_18dp" />
+        app:srcCompat="@drawable/ic_action_clock" />
 
     <TextView
         android:id="@+id/text_eventDate"
