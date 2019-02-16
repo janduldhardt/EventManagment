@@ -6,39 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".HomeScreenActivity">
 
-    <TextView
-        android:id="@+id/text_currentStudentid_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="16dp"
-        android:text="6118135"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text_currentStudentName_header"
-        android:layout_width="wrap_content"
-        android:layout_height="17dp"
-        android:text="Jan Duldhardt"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/text_currentStudentid_header"
-        app:layout_constraintTop_toBottomOf="@+id/text_currentStudentid_header" />
-
-    <ImageView
-        android:id="@+id/image_createEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="36dp"
-        android:tint="@color/red"
-        app:layout_constraintBottom_toTopOf="@+id/main_frame"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_add" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/main_nav"
