@@ -1,116 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
-    android:paddingBottom="5dp">
+    android:layout_height="155dp"
+    android:layout_margin="8dp"
+    cardView:cardCornerRadius="10dp">
 
-    <android.support.v7.widget.CardView
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="2"></android.support.v7.widget.CardView>
-
-    <ImageView
-        android:id="@+id/image_eventImage"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        app:srcCompat="@android:color/white" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:alpha="0.4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:color/black" />
+        android:layout_height="176dp">
 
 
-    <TextView
-        android:id="@+id/text_eventName"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        <ImageView
+            android:id="@+id/image_eventImage"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:color/white" />
 
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_weight="30"
-        android:paddingLeft="5dp"
-        android:paddingTop="5dp"
-        android:shadowColor="@color/black"
-
-        android:shadowRadius="5"
-        android:text="AU CAMP 2018"
-        android:textColor="@color/colorWhite"
-        android:textSize="27dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/location"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:tint="@color/colorWhite"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_location" />
-
-    <ImageView
-        android:id="@+id/time"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:tint="@color/colorWhite"
-        app:layout_constraintBottom_toTopOf="@+id/location"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_action_clock" />
-
-    <TextView
-        android:id="@+id/text_eventDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:shadowColor="@color/black"
-        android:shadowRadius="5"
-        android:text="30/11/1996 - 29/12/2018"
-        android:textColor="@color/colorWhite"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/time"
-        app:layout_constraintStart_toEndOf="@+id/time"
-        app:layout_constraintTop_toTopOf="@+id/time" />
-
-    <TextView
-        android:id="@+id/text_eventLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-
-        android:shadowColor="@color/black"
-        android:shadowRadius="5"
-        android:text="Assumption University Cathedral of Learning"
-        android:textColor="@color/colorWhite"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/location"
-        app:layout_constraintStart_toEndOf="@+id/location"
-        app:layout_constraintTop_toTopOf="@+id/location" />
-
-    <TextView
-        android:id="@+id/text_eventSeatsLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:shadowColor="@color/black"
-        android:shadowRadius="5"
-        android:text="200 SEATS"
-        android:textColor="@color/colorWhite"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!--<ImageView-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="96dp"-->
+        <!--android:alpha="0.4"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:srcCompat="@android:color/black" />-->
 
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/text_eventName"
+            android:layout_width="247dp"
+            android:layout_height="26dp"
+            android:fontFamily="@font/bariol_bold"
+            android:paddingLeft="8dp"
+            android:text="AU CAMP 2018"
+            android:textColor="@color/black"
+            android:textSize="27dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_eventImage" />
+
+        <ImageView
+            android:id="@+id/location"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="8dp"
+            android:tint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_eventDate"
+            app:srcCompat="@drawable/ic_location" />
+
+        <ImageView
+            android:id="@+id/time"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="8dp"
+            android:tint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_eventName"
+            app:srcCompat="@drawable/ic_action_clock" />
+
+        <TextView
+            android:id="@+id/text_eventDate"
+            android:layout_width="200dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/bariol_regular"
+            android:singleLine="true"
+            android:text="30/11/1996 - 29/12/2018"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/time"
+            app:layout_constraintStart_toEndOf="@+id/time"
+            app:layout_constraintTop_toTopOf="@+id/time" />
+
+        <TextView
+            android:id="@+id/text_eventLocation"
+            android:layout_width="265dp"
+            android:layout_height="15dp"
+            android:fontFamily="@font/bariol_regular"
+            android:singleLine="true"
+            android:text="Assumption University Cathedral of Learning"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/location"
+            app:layout_constraintStart_toEndOf="@+id/location"
+            app:layout_constraintTop_toTopOf="@+id/location" />
+
+        <TextView
+            android:id="@+id/text_eventSeatsLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="4dp"
+            android:shadowColor="@color/black"
+            android:shadowRadius="5"
+            android:text="200 SEATS"
+            android:textColor="@color/colorWhite"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.v7.widget.CardView>
