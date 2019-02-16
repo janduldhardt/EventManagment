@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ProfileActivity"></activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +24,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".HomeScreenActivity" />
         <activity android:name=".CreateEventActivity" />
-        <activity android:name=".EventPreviewActivity"></activity>
+        <activity android:name=".EventPreviewActivity" />
     </application>
 
 </manifest>

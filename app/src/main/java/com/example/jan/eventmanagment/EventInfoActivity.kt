@@ -1,30 +1,29 @@
 package com.example.jan.eventmanagment
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.example.jan.eventmanagment.Extensions.API
 import com.example.jan.eventmanagment.Extensions.displayUserTime
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.example.jan.eventmanagment.Models.Enrollment
-import com.example.jan.eventmanagment.Models.Event
 import com.example.jan.eventmanagment.Models.EventResponseWithStatus
-import com.google.gson.GsonBuilder
-import kotlinx.android.synthetic.main.activity_event_info.*
-import kotlinx.android.synthetic.main.event_item_view.text_eventLocation
+import kotlinx.android.synthetic.main.activity_event_info.btn_eventInfo_enrollcancel
+import kotlinx.android.synthetic.main.activity_event_info.constraint_layout_eventInfo
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_date
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_description
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_facebook
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_line
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_phoneNumber
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_termsAndConditions
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_title
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_venue
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.text.SimpleDateFormat
-import java.util.*
 
 class EventInfoActivity : AppCompatActivity() {
 

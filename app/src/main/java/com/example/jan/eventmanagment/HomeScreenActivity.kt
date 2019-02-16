@@ -1,14 +1,13 @@
 package com.example.jan.eventmanagment
 
-import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentName
-import com.example.jan.eventmanagment.Models.Event
-import kotlinx.android.synthetic.main.activity_home_screen.*
+import kotlinx.android.synthetic.main.activity_home_screen.main_nav
+import kotlinx.android.synthetic.main.activity_home_screen.student_header
 
 class HomeScreenActivity : AppCompatActivity() {
 
@@ -25,8 +24,10 @@ class HomeScreenActivity : AppCompatActivity() {
         currentStudentId = loadCurrentStudentId(this)
         currentStudentName = loadCurrentStudentName(this)
 
-        text_currentStudentid_header.text = currentStudentId
-        text_currentStudentName_header.text = currentStudentName
+        student_header.init(currentStudentName, currentStudentId)
+
+//        text_currentStudentid_header.text = currentStudentId
+//        text_currentStudentName_header.text = currentStudentName
 
         main_nav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {

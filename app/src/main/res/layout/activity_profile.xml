@@ -6,4 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bariol_light"
+        android:paddingHorizontal="15dp"
+        android:text="These information will be sent to the event you enroll. All these information provided will be kept confidential."
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    
+
+        <android.support.design.button.MaterialButton
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            tools:layout_editor_absoluteX="86dp"
+            tools:layout_editor_absoluteY="234dp" />
+
+        <android.support.design.button.MaterialButton
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_column="4"
+            android:layout_row="1"
+            tools:layout_editor_absoluteX="86dp"
+            tools:layout_editor_absoluteY="234dp" />
+
+        <android.support.design.button.MaterialButton
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            tools:layout_editor_absoluteX="86dp"
+            tools:layout_editor_absoluteY="234dp" />
+
+        <android.support.design.button.MaterialButton
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            tools:layout_editor_absoluteX="86dp"
+            tools:layout_editor_absoluteY="234dp" />
+
+        <android.support.design.button.MaterialButton
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            tools:layout_editor_absoluteX="86dp"
+            tools:layout_editor_absoluteY="234dp" />
+
+        <android.support.design.button.MaterialButton
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            tools:layout_editor_absoluteX="86dp"
+            tools:layout_editor_absoluteY="234dp" />
+
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/bariol_regular"
+        android:text="Shirt Size"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+
+
 </android.support.constraint.ConstraintLayout>

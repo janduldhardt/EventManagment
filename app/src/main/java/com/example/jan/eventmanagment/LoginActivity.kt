@@ -1,13 +1,20 @@
 package com.example.jan.eventmanagment
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.support.v7.app.AppCompatActivity
 import com.example.jan.eventmanagment.Models.Student
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_home_screen.student_header
+import kotlinx.android.synthetic.main.activity_login.btn_login
+import kotlinx.android.synthetic.main.activity_login.btn_studentOne
+import kotlinx.android.synthetic.main.activity_login.btn_studentThree
+import kotlinx.android.synthetic.main.activity_login.btn_studentTwo
+import kotlinx.android.synthetic.main.activity_login.btn_time
+import kotlinx.android.synthetic.main.activity_login.text_currentStudent
+import kotlinx.android.synthetic.main.activity_login.text_time
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
 
 class LoginActivity : AppCompatActivity() {
 
@@ -65,6 +72,8 @@ class LoginActivity : AppCompatActivity() {
         editor.putString("currentStudentName", currentStudentName)
         editor.commit()
         text_currentStudent.text = currentStudentId
+
+
     }
 
 }

@@ -9,7 +9,11 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.jan.eventmanagment.Models.Event
-import kotlinx.android.synthetic.main.event_item_view.view.*
+import kotlinx.android.synthetic.main.event_item_view.view.image_eventImage
+import kotlinx.android.synthetic.main.event_item_view.view.text_eventDate
+import kotlinx.android.synthetic.main.event_item_view.view.text_eventLocation
+import kotlinx.android.synthetic.main.event_item_view.view.text_eventName
+import kotlinx.android.synthetic.main.event_item_view.view.text_eventSeatsLeft
 import java.text.SimpleDateFormat
 
 class EventAdapter(private val context: Context, val inputList: List<Event>?) :

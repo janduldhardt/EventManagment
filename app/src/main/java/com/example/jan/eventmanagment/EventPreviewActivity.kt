@@ -1,8 +1,8 @@
 package com.example.jan.eventmanagment
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -10,8 +10,18 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.jan.eventmanagment.Extensions.API
 import com.example.jan.eventmanagment.Models.PostEvent
 import com.google.gson.GsonBuilder
-import kotlinx.android.synthetic.main.activity_event_info.*
-import kotlinx.android.synthetic.main.activity_event_preview.*
+import kotlinx.android.synthetic.main.activity_event_info.btn_eventInfo_enrollcancel
+import kotlinx.android.synthetic.main.activity_event_info.constraint_layout_eventInfo
+import kotlinx.android.synthetic.main.activity_event_info.image_eventInfo_eventImage
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_date
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_description
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_facebook
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_line
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_phoneNumber
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_termsAndConditions
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_title
+import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_venue
+import kotlinx.android.synthetic.main.activity_event_preview.preview_title
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,4 +1,4 @@
-package com.example.eventmanagement19.extensions
+package com.example.jan.eventmanagment.Extensions
 
 import android.support.annotation.LayoutRes
 import android.view.LayoutInflater

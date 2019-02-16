@@ -10,8 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.jan.eventmanagment.Extensions.API
 import com.example.jan.eventmanagment.Models.Event
-import kotlinx.android.synthetic.main.activity_home_screen.*
-import kotlinx.android.synthetic.main.fragment_event_all_events.*
+import kotlinx.android.synthetic.main.activity_home_screen.loadingPanel
+import kotlinx.android.synthetic.main.fragment_event_all_events.RecyclerView_allEvents
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

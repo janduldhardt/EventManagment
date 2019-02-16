@@ -6,9 +6,9 @@ import android.app.Dialog
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.net.Uri
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TextInputLayout
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.webkit.MimeTypeMap
 import android.widget.Toast
@@ -18,9 +18,30 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.activity_create_event.*
+import kotlinx.android.synthetic.main.activity_create_event.btn_chooseImage
+import kotlinx.android.synthetic.main.activity_create_event.btn_eventPreview
+import kotlinx.android.synthetic.main.activity_create_event.btn_upload_eventImage
+import kotlinx.android.synthetic.main.activity_create_event.image_creatEvent_preview
+import kotlinx.android.synthetic.main.activity_create_event.progressbar_upload_image
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventCapacity
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventDeadline
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventDescription
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventEndDate
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventFacebook
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventImageURL
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventLine
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventOrganizer
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventStartDate
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventTelephone
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventTermsAndConditions
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventTicketPrice
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventTitle
+import kotlinx.android.synthetic.main.activity_create_event.text_input_eventVenue
+import kotlinx.android.synthetic.main.activity_create_event.text_input_xEventDeadline
+import kotlinx.android.synthetic.main.activity_create_event.text_input_xEventEndDate
+import kotlinx.android.synthetic.main.activity_create_event.text_input_xEventStartDate
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
 
 class CreateEventActivity : AppCompatActivity() {
 

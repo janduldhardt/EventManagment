@@ -1,10 +1,11 @@
-package com.example.eventmanagement19
+package com.example.jan.eventmanagment.Models
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
-import com.example.eventmanagement19.extensions.inflate
+import com.example.jan.eventmanagment.Extensions.inflate
+import com.example.jan.eventmanagment.R
 import kotlinx.android.synthetic.main.student_header.view.*
 
 class student_header : LinearLayout {
@@ -20,7 +21,7 @@ class student_header : LinearLayout {
     private lateinit var name: String
     private lateinit var school: String
 
-    fun init(header: String) {
+    fun init(name: String, school : String) {
         this.name = name
         this.school = school
         renderMenuHeaderTitleView()

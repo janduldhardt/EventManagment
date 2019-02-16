@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".HomeScreenActivity">
 
+<com.example.jan.eventmanagment.Models.student_header
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/student_header"
+
+    >
+
+</com.example.jan.eventmanagment.Models.student_header>
+
+
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/main_nav"
@@ -20,6 +30,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_items" />
 
+
+
     <FrameLayout
         android:id="@+id/main_frame"
         android:layout_width="0dp"
@@ -27,7 +39,7 @@
         app:layout_constraintBottom_toTopOf="@+id/main_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_currentStudentName_header">
+        app:layout_constraintTop_toBottomOf="@+id/student_header">
 
         <RelativeLayout
             android:id="@+id/loadingPanel"
