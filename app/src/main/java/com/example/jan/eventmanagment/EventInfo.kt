@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_event_info.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -37,7 +38,7 @@ class EventInfo : AppCompatActivity() {
         retrofit.start(this)
 
 
-        loggedStudentId = (this.application as currentStudent).getStudent().studentId
+        loggedStudentId = loadCurrentStudentId(this)
         eventid = intent.getStringExtra("EXTRA_eventId")
 
         getInfo() //Starts retrofit call and setText to all Views and makes the constraint layout visible

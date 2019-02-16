@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.View
+import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
+import com.example.jan.eventmanagment.Extensions.loadCurrentStudentName
 import kotlinx.android.synthetic.main.activity_home_screen.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,8 +14,8 @@ import retrofit2.Response
 
 class HomeScreen : AppCompatActivity() {
 
-    lateinit var loggedStudent: Student
-    lateinit var loggedStudentId: String
+    lateinit var currentStudentId: String
+    lateinit var currentStudentName : String
     lateinit var currentStudentEvents: List<Event>
     lateinit var retrofit: RetrofitService
     lateinit var eventList: List<Event>
@@ -26,12 +28,12 @@ class HomeScreen : AppCompatActivity() {
 
 
 
-        loggedStudent = (this.application as currentStudent).getStudent()
 
-        loggedStudentId = loggedStudent.studentId
+        currentStudentId = loadCurrentStudentId(this)
+        currentStudentName = loadCurrentStudentName(this)
 
-        text_currentStudentid_header.setText(loggedStudentId)
-        text_currentStudentName_header.setText(loggedStudent.firstName + " " + loggedStudent.lastName)
+        text_currentStudentid_header.setText(currentStudentId)
+        text_currentStudentName_header.setText(currentStudentName)
 
         retrofit = RetrofitService()
         retrofit.start(this)
@@ -65,7 +67,7 @@ class HomeScreen : AppCompatActivity() {
     }
 
     private fun getUsersEventList() {
-        val call = retrofit.client.listUserEvents(loggedStudentId)
+        val call = retrofit.client.listUserEvents(currentStudentId)
         call.enqueue(object : Callback<List<Event>> {
             override fun onFailure(call: Call<List<Event>>, t: Throwable) {
                 println(t.toString())

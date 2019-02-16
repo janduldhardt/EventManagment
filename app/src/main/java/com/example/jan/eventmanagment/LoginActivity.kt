@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
         val userOne = Student("1", "Jan", "Duldhardt", "VMS")
         val userTwo = Student("2", "Peter", "Meier", "VME")
-        val userThree = Student("3", "Ben", "Seifert", "BBA")
+        val userThree = Student("6113187", "Sanpawat", "Yong", "VMS")
 
         btn_studentOne.setOnClickListener {
             currentStudentId = userOne.studentId

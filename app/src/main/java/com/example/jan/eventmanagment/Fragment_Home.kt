@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import kotlinx.android.synthetic.main.activity_home_screen.*
 import kotlinx.android.synthetic.main.fragment_fragment__event_home.*
 import kotlinx.android.synthetic.main.fragment_fragment__home.*
@@ -28,7 +29,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class Fragment_Home : Fragment() {
 
-    lateinit var loggedStudentId : String
+    lateinit var currentStudentId : String
     lateinit var currentStudentEvents : List<Event>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +37,7 @@ class Fragment_Home : Fragment() {
         (activity as HomeScreen).loadingPanel.setVisibility(View.VISIBLE)
 
 
-        loggedStudentId = (activity as HomeScreen).loggedStudentId
+        currentStudentId = loadCurrentStudentId(context!!)
 
 
         loadStudentsEvents()
@@ -55,7 +56,7 @@ class Fragment_Home : Fragment() {
         val retrofit = RetrofitService()
         retrofit.start(context!!)
         val client = retrofit.client
-        val call = client.listUserEvents(loggedStudentId)
+        val call = client.listUserEvents(currentStudentId)
         call.enqueue(object : Callback<List<Event>>{
             override fun onFailure(call: Call<List<Event>>, t: Throwable) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
