@@ -3,14 +3,16 @@ package com.example.jan.eventmanagment
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import kotlinx.android.synthetic.main.activity_login.*
-import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class Login : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
-    lateinit var currentid : String
+    lateinit var currentStudentId : String
+    lateinit var currentStudentName : String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,25 +23,28 @@ class Login : AppCompatActivity() {
         val userThree = Student("3", "Ben", "Seifert", "BBA")
 
         btn_studentOne.setOnClickListener {
-            (this.application as currentStudent).currentStudent = userOne
+            currentStudentId = userOne.studentId
+            currentStudentName = "${userOne.firstName} ${userOne.lastName}"
             refresh()
         }
 
         btn_studentTwo.setOnClickListener {
-            (this.application as currentStudent).currentStudent = userTwo
+            currentStudentId = userTwo.studentId
+            currentStudentName = "${userTwo.firstName} ${userTwo.lastName}"
             refresh()
 
         }
 
 
         btn_studentThree.setOnClickListener {
-            (this.application as currentStudent).currentStudent = userThree
+            currentStudentId = userThree.studentId
+            currentStudentName = "${userThree.firstName} ${userTwo.lastName}"
             refresh()
         }
 
 
         btn_login.setOnClickListener{
-            val intent = Intent(this@Login, HomeScreen::class.java)
+            val intent = Intent(this@LoginActivity, HomeScreen::class.java)
             startActivity(intent)
         }
 
@@ -53,9 +58,12 @@ class Login : AppCompatActivity() {
 
     }
     fun refresh() {
-        var currentS = (this.application as currentStudent).getStudent()
-        currentid = currentS.studentId
-        text_currentStudent.setText(currentid)
+        val saved_values = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        val editor = saved_values.edit()
+        editor.putString("currentStudentId", currentStudentId)
+        editor.putString("currentStudentName", currentStudentName)
+        editor.commit()
+        text_currentStudent.setText(currentStudentId)
     }
 
 }
