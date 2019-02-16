@@ -4,7 +4,6 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -12,7 +11,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_event_info.*
-import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -80,7 +78,7 @@ class EventInfo : AppCompatActivity() {
 
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 Toast.makeText(this@EventInfo,"Sucess", Toast.LENGTH_LONG).show()
-                val intent = Intent(this@EventInfo, HomeScreen::class.java)
+                val intent = Intent(this@EventInfo, HomeScreenActivity::class.java)
                 startActivity(intent)
             }
 
@@ -156,7 +154,7 @@ class EventInfo : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<String>, response: Response<String>) {
-               val intent = Intent(this@EventInfo, HomeScreen::class.java)
+               val intent = Intent(this@EventInfo, HomeScreenActivity::class.java)
                 startActivity(intent)
             }
 

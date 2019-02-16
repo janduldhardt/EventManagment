@@ -7,15 +7,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import kotlinx.android.synthetic.main.activity_home_screen.*
 import kotlinx.android.synthetic.main.fragment_fragment__event_home.*
-import kotlinx.android.synthetic.main.fragment_fragment__home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -27,54 +23,45 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  *
  */
-class Fragment_Home : Fragment() {
+class Fragment_EventHome : Fragment() {
 
-    lateinit var currentStudentId : String
-    lateinit var currentStudentEvents : List<Event>
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        (activity as HomeScreen).loadingPanel.setVisibility(View.VISIBLE)
-
-
-        currentStudentId = loadCurrentStudentId(context!!)
-
-
-        loadStudentsEvents()
-
-
-
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment__home, container, false)
+        (activity as HomeScreenActivity).loadingPanel.setVisibility(View.VISIBLE)
+
+
+        loadAllEvents()
+
+
+
+        return inflater.inflate(R.layout.fragment_fragment__event_home, container, false)
     }
 
-
-
-
-    private fun loadStudentsEvents() {
-
+    private fun loadAllEvents() {
         val retrofit = RetrofitService()
         retrofit.start(context!!)
         val client = retrofit.client
-        val call = client.listUserEvents(currentStudentId)
-        call.enqueue(object : Callback<List<Event>>{
+
+        val call = client.listAllEvents()
+
+        call.enqueue(object :  Callback<List<Event>>{
             override fun onFailure(call: Call<List<Event>>, t: Throwable) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
-                (activity as HomeScreen).loadingPanel.setVisibility(View.GONE)
-                currentStudentEvents  = response.body()!!
-                RecyclerView_home.apply {
+                (activity as HomeScreenActivity).loadingPanel.setVisibility(View.GONE)
+                val events : List<Event>? = response.body()
+                RecyclerView_eventHome.apply {
                     setHasFixedSize(true)
                     layoutManager = LinearLayoutManager(context)
-                    adapter = EventAdapter(context, currentStudentEvents)
+                    adapter = EventAdapter(context, events)
+
                 }
             }
 
-        })
-
- }
-
-
+        })    }
 }
