@@ -2,33 +2,34 @@ package com.example.jan.eventmanagment.Extensions
 
 import com.example.jan.eventmanagment.Models.Enrollment
 import com.example.jan.eventmanagment.Models.Event
+import com.example.jan.eventmanagment.Models.EventResponseWithStatus
 import com.example.jan.eventmanagment.Models.PostEvent
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.http.*
+import java.lang.reflect.Type
 
 interface API {
     @GET("/event/getall")
     fun listAllEvents(): Call<List<Event>>
 
-//    @GET("/event/geteventbyid/{eventID}")
-//    fun getEventInfo(@Path("eventID") eventID: String): Call<Event>
+    @GET("/event/GetEventById/")
+    fun getEventInfo(@Query("eventId") eventID: String,
+                    @Query("studentId") studentid: String): Call<EventResponseWithStatus>
 
-    @GET("/event/geteventbyid/")
-    fun getEventInfo(@Query("eventid") eventID: String): Call<Event>
-
-    @GET("/event/geteventsbystudentid/{studentId}")
-    fun getEventsByStudentId(@Path("studentId") studentid: String): Call<List<Event>>
+    @GET("/event/geteventsbystudentid/")
+    fun getEventsByStudentId(@Query("studentId") studentid: String): Call<List<Event>>
 
     @POST("/event/submitenrollment")
-    fun createEnrollment(@Body enroll: Enrollment): Call<String>
+    fun submitEnrollment(@Body enroll: Enrollment) : Call<Void>
 
     @POST("/event/addevent")
     fun createEvent(@Body event: PostEvent): Call<Void>
 
     @PUT("/event/cancellation")
     fun cancelEnrollment(
-        @Query("studentId") studentid: String,
-        @Query("eventId") eventid: String
+        @Query("studentId") studentId: String,
+        @Query("eventId") eventId: String
     ): Call<Void>
 }
 
