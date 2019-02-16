@@ -1,4 +1,4 @@
-package com.example.jan.eventmanagment
+package com.example.jan.eventmanagment.Models
 
 import com.google.gson.annotations.SerializedName
 

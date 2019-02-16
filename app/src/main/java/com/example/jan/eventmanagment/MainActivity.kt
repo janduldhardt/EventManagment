@@ -6,6 +6,8 @@ import android.net.NetworkInfo
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import com.example.jan.eventmanagment.Extensions.API
+import com.example.jan.eventmanagment.Models.Event
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.Cache
 import okhttp3.OkHttpClient

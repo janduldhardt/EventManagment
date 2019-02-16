@@ -7,8 +7,9 @@ import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.jan.eventmanagment.Extensions.API
+import com.example.jan.eventmanagment.Models.PostEvent
 import com.google.gson.GsonBuilder
-import kotlinx.android.synthetic.main.activity_create_event.*
 import kotlinx.android.synthetic.main.activity_event_info.*
 import kotlinx.android.synthetic.main.activity_event_preview.*
 import retrofit2.Call
@@ -42,15 +43,15 @@ class EventPreviewActivity : AppCompatActivity() {
         val pCapacity = checkNullOrString("pCapacity") //Can be null
         val pTicketPrice = checkNullOrString("pTicketPrice")  //if no entry price is equal to zero
 
-        text_eventInfo_title.setText(pTitle)
-        text_eventInfo_venue.setText(pVenue)
-        text_eventInfo_date.setText(pStartDate)
-        text_eventInfo_description.setText(pDescription)
-        text_eventInfo_termsAndConditions.setText(pTermsAndConditions)
-        text_eventInfo_phoneNumber.setText(pTelephoneNumber)
-        text_eventInfo_line.setText(pLine)
-        text_eventInfo_facebook.setText(pFacebook)
-        btn_eventInfo_enrollcancel.setText("Create Event")
+        text_eventInfo_title.text = pTitle
+        text_eventInfo_venue.text = pVenue
+        text_eventInfo_date.text = pStartDate
+        text_eventInfo_description.text = pDescription
+        text_eventInfo_termsAndConditions.text = pTermsAndConditions
+        text_eventInfo_phoneNumber.text = pTelephoneNumber
+        text_eventInfo_line.text = pLine
+        text_eventInfo_facebook.text = pFacebook
+        btn_eventInfo_enrollcancel.text = "Create Event"
 
         val options = RequestOptions()
         options.centerCrop()
@@ -59,7 +60,7 @@ class EventPreviewActivity : AppCompatActivity() {
                 .apply(options)
                 .into(image_eventInfo_eventImage)
 
-        constraint_layout_eventInfo.setVisibility(View.VISIBLE)
+        constraint_layout_eventInfo.visibility = View.VISIBLE
 
 
 
@@ -81,11 +82,11 @@ class EventPreviewActivity : AppCompatActivity() {
             call.enqueue(object : Callback<Void> {
                 override fun onFailure(call: Call<Void>, t: Throwable) {
 //                    Toast.makeText(this@EventPreviewActivity, t.toString(), Toast.LENGTH_LONG).show()
-                    preview_title.setText(t.message)
+                    preview_title.text = t.message
                 }
 
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    val intent = Intent(this@EventPreviewActivity, HomeScreen::class.java)
+                    val intent = Intent(this@EventPreviewActivity, HomeScreenActivity::class.java)
                     startActivity(intent)
                     Toast.makeText(this@EventPreviewActivity, "Success", Toast.LENGTH_LONG).show()
 

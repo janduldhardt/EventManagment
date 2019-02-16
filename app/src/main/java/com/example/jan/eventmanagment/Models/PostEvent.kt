@@ -1,4 +1,4 @@
-package com.example.jan.eventmanagment
+package com.example.jan.eventmanagment.Models
 
 data class PostEvent(val title : String,
                      val dateTimeStart : String,

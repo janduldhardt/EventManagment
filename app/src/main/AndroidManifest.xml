@@ -19,9 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EventInfo" />
+        <activity android:name=".EventInfoActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".HomeScreen" />
+        <activity android:name=".HomeScreenActivity" />
         <activity android:name=".CreateEventActivity" />
         <activity android:name=".EventPreviewActivity"></activity>
     </application>

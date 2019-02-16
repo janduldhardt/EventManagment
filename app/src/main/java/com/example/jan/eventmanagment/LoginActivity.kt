@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
+import com.example.jan.eventmanagment.Models.Student
 import kotlinx.android.synthetic.main.activity_login.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -38,13 +39,13 @@ class LoginActivity : AppCompatActivity() {
 
         btn_studentThree.setOnClickListener {
             currentStudentId = userThree.studentId
-            currentStudentName = "${userThree.firstName} ${userTwo.lastName}"
+            currentStudentName = "${userThree.firstName} ${userThree.lastName}"
             refresh()
         }
 
 
         btn_login.setOnClickListener{
-            val intent = Intent(this@LoginActivity, HomeScreen::class.java)
+            val intent = Intent(this@LoginActivity, HomeScreenActivity::class.java)
             startActivity(intent)
         }
 
@@ -52,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
             val sdfDate = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
             val now = Date()
             val strDate = sdfDate.format(now)
-            text_time.setText(strDate)
+            text_time.text = strDate
         }
 
 
@@ -63,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
         editor.putString("currentStudentId", currentStudentId)
         editor.putString("currentStudentName", currentStudentName)
         editor.commit()
-        text_currentStudent.setText(currentStudentId)
+        text_currentStudent.text = currentStudentId
     }
 
 }

@@ -11,19 +11,14 @@ import android.os.Bundle
 import android.support.design.widget.TextInputLayout
 import android.view.View
 import android.webkit.MimeTypeMap
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.EditText
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.jan.eventmanagment.Models.EventImageUpload
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_create_event.*
-import kotlinx.android.synthetic.main.activity_create_event.view.*
-import kotlinx.android.synthetic.main.activity_event_info.*
-import kotlinx.android.synthetic.main.activity_event_preview.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -74,20 +69,12 @@ class CreateEventActivity : AppCompatActivity() {
 
     //This checks if any of inputs displays an error
     private fun validateAllinputs(): Boolean {
-        if (validateMandatoryInput(text_input_eventTitle)
+        return (validateMandatoryInput(text_input_eventTitle)
                 && validateMandatoryInput(text_input_eventVenue)
                 && validateMandatoryInput(text_input_xEventStartDate)
                 && validateMandatoryInput(text_input_eventOrganizer)
                 && validateMandatoryInput(text_input_eventDescription)
-                && validateMandatoryInput(text_input_eventTelephone)
-//                && validateMandatoryInput(text_input_xEventDeadline)
-//                && validateMandatoryInput(text_input_eventImage)
-
-        ) {
-            return true
-        } else {
-            return false
-        }
+                && validateMandatoryInput(text_input_eventTelephone))
 
     }
 
@@ -233,8 +220,8 @@ class CreateEventActivity : AppCompatActivity() {
     //opens the file drawer
     private fun openFileChooser() {
         val intent = Intent()
-        intent.setType("image/*")
-        intent.setAction(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(intent, PICK_IMAGE_REQUEST)
     }
 

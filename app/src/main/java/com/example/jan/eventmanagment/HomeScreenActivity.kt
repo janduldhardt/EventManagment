@@ -7,43 +7,26 @@ import android.support.v4.app.Fragment
 import android.view.View
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentName
+import com.example.jan.eventmanagment.Models.Event
 import kotlinx.android.synthetic.main.activity_home_screen.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class HomeScreen : AppCompatActivity() {
+class HomeScreenActivity : AppCompatActivity() {
 
     lateinit var currentStudentId: String
-    lateinit var currentStudentName : String
-    lateinit var currentStudentEvents: List<Event>
-    lateinit var retrofit: RetrofitService
-    lateinit var eventList: List<Event>
+    lateinit var currentStudentName: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_screen)
         findViewById<View>(R.id.nav_home).isClickable = false
-
-
-
-
+        setFragment(Fragment_Home())
 
         currentStudentId = loadCurrentStudentId(this)
         currentStudentName = loadCurrentStudentName(this)
 
-        text_currentStudentid_header.setText(currentStudentId)
-        text_currentStudentName_header.setText(currentStudentName)
-
-        retrofit = RetrofitService()
-        retrofit.start(this)
-
-        getUsersEventList()
-
-        image_createEvent.setOnClickListener {
-            val intent = Intent(this@HomeScreen, CreateEventActivity::class.java)
-            startActivity(intent)
-        }
+        text_currentStudentid_header.text = currentStudentId
+        text_currentStudentName_header.text = currentStudentName
 
         main_nav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -65,23 +48,6 @@ class HomeScreen : AppCompatActivity() {
         }
 
     }
-
-    private fun getUsersEventList() {
-        val call = retrofit.client.listUserEvents(currentStudentId)
-        call.enqueue(object : Callback<List<Event>> {
-            override fun onFailure(call: Call<List<Event>>, t: Throwable) {
-                println(t.toString())
-            }
-
-            override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
-                eventList = response.body()!!
-                setFragment(Fragment_Home())
-            }
-
-        })
-    }
-
-
     private fun setFragment(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.main_frame, fragment)
