@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+>
+
+
+    <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView-student_Header"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            app:layout_constraintVertical_bias="0.523" />
+
+    <TextView
+            android:id="@+id/tv_Name_Student_Header"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
+            app:autoSizeTextType="uniform"
+
+            android:fontFamily="@font/bariol_regular"
+            android:singleLine="true"
+            android:text="Jan Duldhardt"
+            android:textColor="@color/MainFont"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/circleImageView-student_Header"
+            app:layout_constraintTop_toTopOf="@+id/circleImageView-student_Header" />
+
+    <TextView
+            android:id="@+id/tv_school_student_header"
+            android:layout_width="0dp"
+            android:layout_height="15dp"
+            android:fontFamily="@font/bariol_regular"
+            android:singleLine="true"
+            android:text="Vincent Mary School Science and Technology"
+            app:autoSizeTextType="uniform"
+            android:textColor="@color/SecondFont"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_Name_Student_Header"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Name_Student_Header" />
+
+
+</android.support.constraint.ConstraintLayout>
