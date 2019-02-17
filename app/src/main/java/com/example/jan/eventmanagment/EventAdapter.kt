@@ -65,7 +65,7 @@ class EventAdapter(private val context: Context, val inputList: List<Event>?) :
 
     private fun reformatTime(inputString: String?): String {
         val fromServer = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-        val myFormat = SimpleDateFormat("dd/MM/yyyy HH:mm")
+        val myFormat = SimpleDateFormat("dd/MM/yy HH:mm")
         val reformattedStr = myFormat.format(fromServer.parse(inputString))
         return reformattedStr
     }
@@ -80,7 +80,7 @@ class EventAdapter(private val context: Context, val inputList: List<Event>?) :
 
             val subsf1 = sf1.subSequence(0, 9)
             if (subsf1 in sf2) {
-                return sf1 + " - " + sf2.subSequence(sf2.length - 6, sf2.length - 1)
+                return sf1 + " - " + sf2.subSequence(sf2.length - 6, sf2.length)
             } else {
                 return sf1 + " - " + sf2
             }
