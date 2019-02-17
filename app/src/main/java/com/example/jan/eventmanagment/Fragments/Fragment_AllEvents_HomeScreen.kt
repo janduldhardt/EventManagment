@@ -1,4 +1,4 @@
-package com.example.jan.eventmanagment
+package com.example.jan.eventmanagment.Fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -9,7 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.jan.eventmanagment.Extensions.API
+import com.example.jan.eventmanagment.Extensions.EventAdapter
+import com.example.jan.eventmanagment.HomeScreenActivity
 import com.example.jan.eventmanagment.Models.Event
+import com.example.jan.eventmanagment.R.layout
 import kotlinx.android.synthetic.main.activity_home_screen.loadingPanel
 import kotlinx.android.synthetic.main.fragment_event_all_events.RecyclerView_allEvents
 import retrofit2.Call
@@ -38,7 +41,7 @@ class Fragment_EventHome : Fragment() {
         (activity as HomeScreenActivity).loadingPanel.visibility = View.VISIBLE
         client = (context as HomeScreenActivity).client
         loadAllEvents()
-        return inflater.inflate(R.layout.fragment_event_all_events, container, false)
+        return inflater.inflate(layout.fragment_event_all_events, container, false)
     }
 
     private fun loadAllEvents() {

@@ -1,4 +1,4 @@
-package com.example.jan.eventmanagment
+package com.example.jan.eventmanagment.Extensions
 
 import android.content.Context
 import android.content.Intent
@@ -8,7 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.jan.eventmanagment.EventInfoActivity
+import com.example.jan.eventmanagment.Extensions.EventAdapter.ViewHolder
 import com.example.jan.eventmanagment.Models.Event
+import com.example.jan.eventmanagment.R.layout
 import kotlinx.android.synthetic.main.event_item_view.view.image_eventImage
 import kotlinx.android.synthetic.main.event_item_view.view.text_eventDate
 import kotlinx.android.synthetic.main.event_item_view.view.text_eventLocation
@@ -17,13 +20,13 @@ import kotlinx.android.synthetic.main.event_item_view.view.text_eventSeatsLeft
 import java.text.SimpleDateFormat
 
 class EventAdapter(private val context: Context, val inputList: List<Event>?) :
-    RecyclerView.Adapter<EventAdapter.ViewHolder>() {
+    RecyclerView.Adapter<ViewHolder>() {
 
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): EventAdapter.ViewHolder {
-        val view = LayoutInflater.from(p0.context).inflate(R.layout.event_item_view, p0, false)
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
+        val view = LayoutInflater.from(p0.context).inflate(layout.event_item_view, p0, false)
         return ViewHolder(view)
     }
 
@@ -34,7 +37,7 @@ class EventAdapter(private val context: Context, val inputList: List<Event>?) :
         return 0
     }
 
-    override fun onBindViewHolder(p0: EventAdapter.ViewHolder, p1: Int) {
+    override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
         var item = inputList?.get(p1)
         p0.view.text_eventName.text = item?.eventTitle
         p0.view.text_eventLocation.text = item?.eventVenue

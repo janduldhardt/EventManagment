@@ -41,6 +41,10 @@ interface API {
     @GET("/event/getstudentprofile")
     fun getStudentProfile(@Query("studentId") studentId: String) : Call<StudentProfile>
 
+    @GET("/event/getTodayEvents")
+    fun getTodayEvents(@Query("studentId") studentId: String) : Call<List<Event>>
+
+
 
 }
 

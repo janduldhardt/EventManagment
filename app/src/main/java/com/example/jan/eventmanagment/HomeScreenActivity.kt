@@ -7,6 +7,8 @@ import android.view.View
 import com.example.jan.eventmanagment.Extensions.API
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentName
+import com.example.jan.eventmanagment.Fragments.Fragment_EventHome
+import com.example.jan.eventmanagment.Fragments.Fragment_Home
 import kotlinx.android.synthetic.main.activity_home_screen.main_nav
 import kotlinx.android.synthetic.main.activity_home_screen.student_header
 

@@ -7,9 +7,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.example.jan.eventmanagment.Extensions.EventTodayAdapter
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentName
 import com.example.jan.eventmanagment.Models.Event
+import com.example.jan.eventmanagment.R.layout
 import kotlinx.android.synthetic.main.activity_today_page.student_header
 import kotlinx.android.synthetic.main.activity_today_page.RecyclerView_Today
 import retrofit2.Call
@@ -37,14 +39,18 @@ class TodayPageActivity : AppCompatActivity() {
     }
 
     private fun loadUserEvents() {
-        val call = client.getEventsByStudentId(currentStudentId)
+        val call = client.getTodayEvents(currentStudentId)
         call.enqueue(object : Callback<List<Event>> {
             override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
                 val events: List<Event>? = response.body()
                 RecyclerView_Today.apply {
                     setHasFixedSize(true)
                     layoutManager = LinearLayoutManager(context)
-                    adapter = EventTodayAdapter(context, events, R.layout.eventtoday_item_view)
+                    adapter = EventTodayAdapter(
+                        context,
+                        events,
+                        layout.eventtoday_item_view
+                    )
                 }
             }
 

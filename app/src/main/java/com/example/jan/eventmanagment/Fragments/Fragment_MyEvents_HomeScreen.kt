@@ -1,4 +1,4 @@
-package com.example.jan.eventmanagment
+package com.example.jan.eventmanagment.Fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -9,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.jan.eventmanagment.Extensions.API
+import com.example.jan.eventmanagment.Extensions.EventAdapter
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
+import com.example.jan.eventmanagment.HomeScreenActivity
 import com.example.jan.eventmanagment.Models.Event
+import com.example.jan.eventmanagment.R.layout
 import kotlinx.android.synthetic.main.activity_home_screen.loadingPanel
-import kotlinx.android.synthetic.main.activity_today_page.RecyclerView_Today
 import kotlinx.android.synthetic.main.fragment_my_events.RecyclerView_myEvents
 import retrofit2.Call
 import retrofit2.Callback
@@ -44,7 +46,7 @@ class Fragment_Home : Fragment() {
         loadUserEvents()
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_events, container, false)
+        return inflater.inflate(layout.fragment_my_events, container, false)
     }
 
     private fun loadUserEvents() {
