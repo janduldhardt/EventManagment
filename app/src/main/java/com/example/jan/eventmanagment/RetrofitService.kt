@@ -1,6 +1,7 @@
 package com.example.jan.eventmanagment
 
 import com.example.jan.eventmanagment.Extensions.API
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

@@ -71,7 +71,6 @@ class ProfileActivity : AppCompatActivity() {
                 }
 
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@ProfileActivity, HomeScreenActivity::class.java)
                     startActivity(intent)
                 }

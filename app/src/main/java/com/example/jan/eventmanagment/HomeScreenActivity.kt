@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.example.jan.eventmanagment.Extensions.API
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentName
 import kotlinx.android.synthetic.main.activity_home_screen.main_nav
@@ -13,6 +14,8 @@ class HomeScreenActivity : AppCompatActivity() {
 
     lateinit var currentStudentId: String
     lateinit var currentStudentName: String
+    var retro = RetrofitService()
+    var client: API = retro.client
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,8 +29,6 @@ class HomeScreenActivity : AppCompatActivity() {
 
         student_header.init(currentStudentName, currentStudentId)
 
-//        text_currentStudentid_header.text = currentStudentId
-//        text_currentStudentName_header.text = currentStudentName
 
         main_nav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {

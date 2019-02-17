@@ -210,6 +210,8 @@
         android:id="@+id/btn_eventInfo_enrollcancel"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:backgroundTint="@color/red"
+        android:onClick="onClickEnroll"
         android:text="ENROLL"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

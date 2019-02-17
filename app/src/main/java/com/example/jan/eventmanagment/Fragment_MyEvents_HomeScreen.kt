@@ -22,6 +22,7 @@ import retrofit2.Response
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
+
 /**
  * A simple [Fragment] subclass.
  *
@@ -38,7 +39,7 @@ class Fragment_Home : Fragment() {
     ): View? {
         (activity as HomeScreenActivity).loadingPanel.visibility = View.VISIBLE
         currentStudentId = loadCurrentStudentId(context!!)
-        client = RetrofitService().client
+        client = (context as HomeScreenActivity).client
         loadUserEvents()
 
         // Inflate the layout for this fragment

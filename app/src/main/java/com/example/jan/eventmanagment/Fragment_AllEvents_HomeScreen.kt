@@ -36,7 +36,7 @@ class Fragment_EventHome : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         (activity as HomeScreenActivity).loadingPanel.visibility = View.VISIBLE
-        client = RetrofitService().client
+        client = (context as HomeScreenActivity).client
         loadAllEvents()
         return inflater.inflate(R.layout.fragment_event_all_events, container, false)
     }

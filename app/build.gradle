@@ -47,5 +47,8 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.0' //round images
     implementation 'com.yarolegovich:lovely-dialog:1.1.0' //AlertDialog
 
+    implementation 'com.google.zxing:core:3.2.1'
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+
 
 }

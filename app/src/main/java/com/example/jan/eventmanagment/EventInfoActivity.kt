@@ -2,6 +2,7 @@ package com.example.jan.eventmanagment
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
@@ -13,6 +14,8 @@ import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.example.jan.eventmanagment.Models.Enrollment
 import com.example.jan.eventmanagment.Models.EventResponseWithStatus
 import com.example.jan.eventmanagment.Models.StudentProfile
+import com.yarolegovich.lovelydialog.LovelyInfoDialog
+import com.yarolegovich.lovelydialog.LovelyStandardDialog
 import kotlinx.android.synthetic.main.activity_event_info.btn_eventInfo_enrollcancel
 import kotlinx.android.synthetic.main.activity_event_info.constraint_layout_eventInfo
 import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_date
@@ -30,18 +33,16 @@ import retrofit2.Response
 class EventInfoActivity : AppCompatActivity() {
 
     lateinit var client: API
-
     lateinit var eventid: String
-
     lateinit var currentStudentId: String
-
     lateinit var status: String
-
     var isBusy: Boolean = false
+    val mHandler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_info)
+
         constraint_layout_eventInfo.visibility = View.GONE
         //TODO: Loading Bar
         client = RetrofitService().client
@@ -50,24 +51,46 @@ class EventInfoActivity : AppCompatActivity() {
         eventid = intent.getStringExtra("EXTRA_eventId")
 
         loadEvent()
+    }
 
-        btn_eventInfo_enrollcancel.setOnClickListener {
-            if (!isBusy) {
-                enrollButtonOnClick()
-                isBusy = true
+    fun onClickEnroll(v: View) {
+        if (!isBusy) {
+            isBusy = true
+            if (btn_eventInfo_enrollcancel.tag == 0) { //ALLOW
+                loadProfile()
+//                postEnrollment() --> Inside loadProfile Response!!
+            } else if (btn_eventInfo_enrollcancel.tag == 1) { //CLOSED
+//            TODO: SimpleAlertDialog
+            } else { //ENROLLED ALREADY
+//            TODO: SimpleAlertDialog
+                cancelEnrollment()
             }
         }
     }
 
-    private fun enrollButtonOnClick() {
-        if (btn_eventInfo_enrollcancel.tag == 0) { //ALLOW
-            postEnrollment()
-        } else if (btn_eventInfo_enrollcancel.tag == 1) { //CLOSED
-//            TODO: SimpleAlertDialog
-        } else { //ENROLLED ALREADY
-//            TODO: SimpleAlertDialog
-            cancelEnrollment()
-        }
+    private fun loadProfile() {
+        val call = client.getStudentProfile(currentStudentId)
+        call.enqueue(object : Callback<StudentProfile> {
+            override fun onFailure(call: Call<StudentProfile>, t: Throwable) {
+                isBusy = false
+            }
+
+            override fun onResponse(call: Call<StudentProfile>, response: Response<StudentProfile>) {
+                if (response.code() == 404) {
+                    val dialog = LovelyStandardDialog(this@EventInfoActivity)
+                        .setTitle("Profile not found")
+                        .setMessage("Please fill in your profile first")
+                        .setPositiveButton("Ok") {
+                            val intent = Intent(this@EventInfoActivity, ProfileActivity::class.java)
+                            startActivity(intent)
+                        }
+                    dialog.show()
+                }else {
+                    isBusy = false
+                    postEnrollment()
+                }
+            }
+        })
     }
 
     private fun cancelEnrollment() {
@@ -104,6 +127,7 @@ class EventInfoActivity : AppCompatActivity() {
     }
 
     private fun loadEvent() {
+        isBusy = true
         val call = client.getEventInfo(eventid, currentStudentId)
         call.enqueue(object : Callback<EventResponseWithStatus> {
             override fun onFailure(call: Call<EventResponseWithStatus>, t: Throwable) {
@@ -117,6 +141,7 @@ class EventInfoActivity : AppCompatActivity() {
                 constraint_layout_eventInfo.visibility = View.VISIBLE
                 val item = response.body()!!
                 refreshLayout(item)
+                isBusy = false
             }
         })
     }
