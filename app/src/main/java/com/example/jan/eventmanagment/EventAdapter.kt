@@ -45,7 +45,7 @@ class EventAdapter(private val context: Context, val inputList: List<Event>?) :
         if (item.eventAvalibility == null) {
             p0.view.text_eventSeatsLeft.visibility = View.GONE
         } else {
-            p0.view.text_eventSeatsLeft.text = item.eventAvalibility.toString() + " SEATS LEFT"
+            p0.view.text_eventSeatsLeft.text = item.eventAvalibility.toString()
         }
 
         val options = RequestOptions()
