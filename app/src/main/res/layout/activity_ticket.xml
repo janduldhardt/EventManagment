@@ -8,27 +8,28 @@
     >
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ticket_background"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/ticket_background" />
 
     <ImageView
-        android:id="@+id/image_ticket_qrcode"
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.6"
         android:src="@color/black" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="253dp"
-        android:layout_height="267dp"
-        app:layout_constraintBottom_toBottomOf="@+id/image_ticket_qrcode"
+        android:id="@+id/image_ticket_qrcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/image_ticket_qrcode"
-        app:layout_constraintVertical_bias="0.676"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
 

@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         btn_login.setOnClickListener{
-            val intent = Intent(this@LoginActivity, HomeScreenActivity::class.java)
+            val intent = Intent(this@LoginActivity, TodayPageActivity::class.java)
             startActivity(intent)
         }
 

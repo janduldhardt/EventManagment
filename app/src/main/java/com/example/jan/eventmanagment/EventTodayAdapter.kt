@@ -16,14 +16,14 @@ import kotlinx.android.synthetic.main.event_item_view.view.text_eventName
 import kotlinx.android.synthetic.main.event_item_view.view.text_eventSeatsLeft
 import java.text.SimpleDateFormat
 
-class EventAdapter(private val context: Context, val inputList: List<Event>?) :
-    RecyclerView.Adapter<EventAdapter.ViewHolder>() {
+class EventTodayAdapter(private val context: Context, val inputList: List<Event>?, val layout : Int) :
+    RecyclerView.Adapter<EventTodayAdapter.ViewHolder>() {
 
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): EventAdapter.ViewHolder {
-        val view = LayoutInflater.from(p0.context).inflate(R.layout.event_item_view, p0, false)
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): EventTodayAdapter.ViewHolder {
+        val view = LayoutInflater.from(p0.context).inflate(layout, p0, false)
         return ViewHolder(view)
     }
 
@@ -34,19 +34,15 @@ class EventAdapter(private val context: Context, val inputList: List<Event>?) :
         return 0
     }
 
-    override fun onBindViewHolder(p0: EventAdapter.ViewHolder, p1: Int) {
+    override fun onBindViewHolder(p0: EventTodayAdapter.ViewHolder, p1: Int) {
         var item = inputList?.get(p1)
         p0.view.text_eventName.text = item?.eventTitle
         p0.view.text_eventLocation.text = item?.eventVenue
 
-        val eventTimes = displayFormatTime(item!!.eventDateTimeStart, item.eventDateTimeEnd)
+        val eventTimes = reformatTime(item!!.eventDateTimeStart)
         p0.view.text_eventDate.text = eventTimes
 
-        if (item.eventAvalibility == null) {
-            p0.view.text_eventSeatsLeft.visibility = View.GONE
-        } else {
-            p0.view.text_eventSeatsLeft.text = item.eventAvalibility.toString() + " SEATS LEFT"
-        }
+
 
         val options = RequestOptions()
         options.centerCrop()
@@ -56,7 +52,7 @@ class EventAdapter(private val context: Context, val inputList: List<Event>?) :
             .into(p0.view.image_eventImage)
 
         p0.itemView.setOnClickListener {
-            val intent = Intent(context, EventInfoActivity::class.java).apply {
+            val intent = Intent(context, TicketActivity::class.java).apply {
                 putExtra("EXTRA_eventId", item.eventId.toString())
             }
             context.startActivity(intent)
@@ -65,9 +61,10 @@ class EventAdapter(private val context: Context, val inputList: List<Event>?) :
 
     private fun reformatTime(inputString: String?): String {
         val fromServer = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-        val myFormat = SimpleDateFormat("dd/MM/yyyy HH:mm")
+        val myFormat = SimpleDateFormat("HH:mm")
         val reformattedStr = myFormat.format(fromServer.parse(inputString))
-        return reformattedStr
+        val text = "Begin $reformattedStr"
+        return text
     }
 
     fun displayFormatTime(s1: String, s2: String?): String {

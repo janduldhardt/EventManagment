@@ -12,6 +12,7 @@ import com.example.jan.eventmanagment.Extensions.API
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.example.jan.eventmanagment.Models.Event
 import kotlinx.android.synthetic.main.activity_home_screen.loadingPanel
+import kotlinx.android.synthetic.main.activity_today_page.RecyclerView_Today
 import kotlinx.android.synthetic.main.fragment_my_events.RecyclerView_myEvents
 import retrofit2.Call
 import retrofit2.Callback

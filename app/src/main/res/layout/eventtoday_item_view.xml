@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:cardView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="155dp"
     android:layout_margin="8dp"
@@ -45,68 +46,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_eventImage" />
 
-        <ImageView
-            android:id="@+id/location"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_marginLeft="8dp"
-            android:tint="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_eventDate"
-            app:srcCompat="@drawable/ic_location" />
-
-        <ImageView
-            android:id="@+id/time"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_marginLeft="8dp"
-            android:tint="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_eventName"
-            app:srcCompat="@drawable/ic_action_clock" />
-
         <TextView
             android:id="@+id/text_eventDate"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
+
             android:layout_height="15dp"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/bariol_regular"
+            android:fontFamily="@font/bariol_bold"
+            android:paddingLeft="8dp"
             android:singleLine="true"
-            android:text="30/11/1996 - 29/12/2018"
+            android:text="Begin 9:00"
             android:textColor="@color/black"
             android:textSize="12dp"
             app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toBottomOf="@+id/time"
-            app:layout_constraintStart_toEndOf="@+id/time"
-            app:layout_constraintTop_toTopOf="@+id/time" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_eventName" />
 
         <TextView
             android:id="@+id/text_eventLocation"
             android:layout_width="265dp"
             android:layout_height="15dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/bariol_regular"
             android:singleLine="true"
             android:text="Assumption University Cathedral of Learning"
             android:textColor="@color/black"
-            android:textSize="12dp"
+            android:textSize="10dp"
             app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toBottomOf="@+id/location"
-            app:layout_constraintStart_toEndOf="@+id/location"
-            app:layout_constraintTop_toTopOf="@+id/location" />
-
-        <TextView
-            android:id="@+id/text_eventSeatsLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            android:layout_marginTop="4dp"
-            android:shadowColor="@color/black"
-            android:shadowRadius="5"
-            android:text="200 SEATS"
-            android:textColor="@color/colorWhite"
-            android:textSize="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/text_eventDate"
+            app:layout_constraintTop_toBottomOf="@+id/text_eventName" />
 
     </android.support.constraint.ConstraintLayout>
 
