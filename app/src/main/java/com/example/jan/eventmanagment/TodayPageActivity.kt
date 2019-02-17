@@ -14,6 +14,7 @@ import com.example.jan.eventmanagment.Models.Event
 import com.example.jan.eventmanagment.R.layout
 import kotlinx.android.synthetic.main.activity_today_page.student_header
 import kotlinx.android.synthetic.main.activity_today_page.RecyclerView_Today
+import kotlinx.android.synthetic.main.activity_today_page.progressbar_todayPage
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,6 +43,7 @@ class TodayPageActivity : AppCompatActivity() {
         val call = client.getTodayEvents(currentStudentId)
         call.enqueue(object : Callback<List<Event>> {
             override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
+                progressbar_todayPage.visibility = View.GONE
                 val events: List<Event>? = response.body()
                 RecyclerView_Today.apply {
                     setHasFixedSize(true)

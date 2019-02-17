@@ -45,10 +45,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:16.0.1'
     implementation 'com.google.firebase:firebase-database:16.0.1'
     implementation 'de.hdodenhof:circleimageview:3.0.0' //round images
-    implementation 'com.yarolegovich:lovely-dialog:1.1.0' //AlertDialog
+
 
     implementation 'com.google.zxing:core:3.2.1'
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar' //Shimmer
 
 
 }

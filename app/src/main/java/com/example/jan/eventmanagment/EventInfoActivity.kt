@@ -1,12 +1,17 @@
 package com.example.jan.eventmanagment
 
+import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.jan.eventmanagment.Extensions.API
 import com.example.jan.eventmanagment.Extensions.MyApplication.Companion.context
 import com.example.jan.eventmanagment.Extensions.displayUserTime
@@ -14,10 +19,9 @@ import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.example.jan.eventmanagment.Models.Enrollment
 import com.example.jan.eventmanagment.Models.EventResponseWithStatus
 import com.example.jan.eventmanagment.Models.StudentProfile
-import com.yarolegovich.lovelydialog.LovelyInfoDialog
-import com.yarolegovich.lovelydialog.LovelyStandardDialog
 import kotlinx.android.synthetic.main.activity_event_info.btn_eventInfo_enrollcancel
 import kotlinx.android.synthetic.main.activity_event_info.constraint_layout_eventInfo
+import kotlinx.android.synthetic.main.activity_event_info.image_eventInfo_eventImage
 import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_date
 import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_description
 import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_facebook
@@ -26,6 +30,7 @@ import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_phoneNu
 import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_termsAndConditions
 import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_title
 import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_venue
+import kotlinx.android.synthetic.main.event_item_view.view.image_eventImage
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -62,8 +67,16 @@ class EventInfoActivity : AppCompatActivity() {
             } else if (btn_eventInfo_enrollcancel.tag == 1) { //CLOSED
 //            TODO: SimpleAlertDialog
             } else { //ENROLLED ALREADY
-//            TODO: SimpleAlertDialog
+            val builder = AlertDialog.Builder(this@EventInfoActivity)
+                .setTitle("Cancel enrollment?")
+                .setMessage("Are you sure you want to cancel the enrollment to this event?")
+                .setNegativeButton("Cancel",{ dialogInterface: DialogInterface, i: Int ->
+                    isBusy = false
+                })
+            .setPositiveButton("Confirm", { dialogInterface: DialogInterface, i: Int ->
                 cancelEnrollment()
+            })
+        builder.show()
             }
         }
     }
@@ -77,10 +90,10 @@ class EventInfoActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<StudentProfile>, response: Response<StudentProfile>) {
                 if (response.code() == 404) {
-                    val dialog = LovelyStandardDialog(this@EventInfoActivity)
+                    val dialog = AlertDialog.Builder(this@EventInfoActivity)
                         .setTitle("Profile not found")
                         .setMessage("Please fill in your profile first")
-                        .setPositiveButton("Ok") {
+                        .setPositiveButton("Ok") { dialogInterface: DialogInterface, i: Int ->
                             val intent = Intent(this@EventInfoActivity, ProfileActivity::class.java)
                             startActivity(intent)
                         }
@@ -156,6 +169,13 @@ class EventInfoActivity : AppCompatActivity() {
         text_eventInfo_facebook.text = item.eventDetail.eventFacebook
         text_eventInfo_line.text = item.eventDetail.eventLine
 
+        val options = RequestOptions()
+        options.centerCrop()
+        Glide.with(this@EventInfoActivity)
+            .load(item.eventDetail.eventImage)
+            .apply(options)
+            .into(image_eventInfo_eventImage)
+
         //Enrollment Button
         status = item.status
         if (status == "ALLOW") {
@@ -167,5 +187,10 @@ class EventInfoActivity : AppCompatActivity() {
             btn_eventInfo_enrollcancel.text = "Cancel Enrollment"
             btn_eventInfo_enrollcancel.tag = 2
         }
+    }
+
+    fun createDialog(){
+
+
     }
 }
