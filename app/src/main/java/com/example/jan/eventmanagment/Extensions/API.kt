@@ -4,6 +4,7 @@ import com.example.jan.eventmanagment.Models.Enrollment
 import com.example.jan.eventmanagment.Models.Event
 import com.example.jan.eventmanagment.Models.EventResponseWithStatus
 import com.example.jan.eventmanagment.Models.PostEvent
+import com.example.jan.eventmanagment.Models.StudentProfile
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -33,6 +34,14 @@ interface API {
         @Query("studentId") studentId: String,
         @Query("eventId") eventId: String
     ): Call<Void>
+
+    @POST("/event/addprofile")
+    fun addProfile(@Body profile: StudentProfile): Call<Void>
+
+    @GET("/event/getstudentprofile")
+    fun getStudentProfile(@Query("studentId") studentId: String) : Call<StudentProfile>
+
+
 }
 
 /* Enrollment /getallenrollments /submitenrollment

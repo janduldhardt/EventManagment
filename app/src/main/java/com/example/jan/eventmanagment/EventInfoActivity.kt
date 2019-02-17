@@ -7,10 +7,12 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.jan.eventmanagment.Extensions.API
+import com.example.jan.eventmanagment.Extensions.MyApplication.Companion.context
 import com.example.jan.eventmanagment.Extensions.displayUserTime
 import com.example.jan.eventmanagment.Extensions.loadCurrentStudentId
 import com.example.jan.eventmanagment.Models.Enrollment
 import com.example.jan.eventmanagment.Models.EventResponseWithStatus
+import com.example.jan.eventmanagment.Models.StudentProfile
 import kotlinx.android.synthetic.main.activity_event_info.btn_eventInfo_enrollcancel
 import kotlinx.android.synthetic.main.activity_event_info.constraint_layout_eventInfo
 import kotlinx.android.synthetic.main.activity_event_info.text_eventInfo_date
