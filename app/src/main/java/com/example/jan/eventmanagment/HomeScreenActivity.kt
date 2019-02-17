@@ -26,7 +26,7 @@ class HomeScreenActivity : AppCompatActivity() {
 
         currentStudentId = loadCurrentStudentId(this)
         currentStudentName = loadCurrentStudentName(this)
-
+//
         student_header.init(currentStudentName, currentStudentId)
 
 
