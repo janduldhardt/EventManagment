@@ -73,6 +73,9 @@ class EventInfoActivity : AppCompatActivity() {
                 .setNegativeButton("Cancel",{ dialogInterface: DialogInterface, i: Int ->
                     isBusy = false
                 })
+                .setOnDismissListener {
+                    isBusy = false
+                }
             .setPositiveButton("Confirm", { dialogInterface: DialogInterface, i: Int ->
                 cancelEnrollment()
             })
@@ -99,8 +102,19 @@ class EventInfoActivity : AppCompatActivity() {
                         }
                     dialog.show()
                 }else {
-                    isBusy = false
-                    postEnrollment()
+                    isBusy = true
+                    val builder = AlertDialog.Builder(this@EventInfoActivity)
+                        .setTitle("Confirm Enrollment?")
+                        .setMessage("Are you sure you want to enroll for this event?")
+                        .setNegativeButton("Cancel",{ dialogInterface: DialogInterface, i: Int ->
+                            isBusy = false
+                        })
+                        .setPositiveButton("Confirm", { dialogInterface: DialogInterface, i: Int ->
+                            postEnrollment()
+                        })
+
+                    builder.show()
+
                 }
             }
         })
@@ -123,6 +137,7 @@ class EventInfoActivity : AppCompatActivity() {
     }
 
     private fun postEnrollment() {
+        isBusy = true
         val enrollment = Enrollment(currentStudentId, eventid, false, true)
         val call = client.submitEnrollment(enrollment)
         call.enqueue(object : Callback<Void> {

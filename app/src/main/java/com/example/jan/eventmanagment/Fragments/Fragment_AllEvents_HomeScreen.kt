@@ -45,11 +45,13 @@ class Fragment_EventHome : Fragment() {
     }
 
     private fun loadAllEvents() {
+        (activity as HomeScreenActivity).isBusy = true
         val call = client.listAllEvents()
         call.enqueue(object : Callback<List<Event>> {
             override fun onFailure(call: Call<List<Event>>, t: Throwable) {
                 Log.d("loadAllEvents", t.toString())
                 Toast.makeText(context, "Error loading Data", Toast.LENGTH_SHORT).show()
+                (activity as HomeScreenActivity).isBusy = false
             }
 
             override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
@@ -60,6 +62,7 @@ class Fragment_EventHome : Fragment() {
                     layoutManager = LinearLayoutManager(context)
                     adapter = EventAdapter(context, events)
                 }
+                (activity as HomeScreenActivity).isBusy = false
             }
         })
     }

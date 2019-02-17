@@ -36,6 +36,8 @@ class Fragment_Home : Fragment() {
     var currentUserEvents: List<Event>? = null
     lateinit var client: API
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,6 +52,7 @@ class Fragment_Home : Fragment() {
     }
 
     private fun loadUserEvents() {
+        (activity as HomeScreenActivity).isBusy = true
         val call = client.getEventsByStudentId(currentStudentId)
         call.enqueue(object : Callback<List<Event>> {
             override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
@@ -60,11 +63,13 @@ class Fragment_Home : Fragment() {
                     layoutManager = LinearLayoutManager(context)
                     adapter = EventAdapter(context, events)
                 }
+                (activity as HomeScreenActivity).isBusy = false
             }
 
             override fun onFailure(call: Call<List<Event>>, t: Throwable) {
                 Log.d("loadUserEvents", t.toString())
                 Toast.makeText(context, "Error loading Data", Toast.LENGTH_SHORT).show()
+                (activity as HomeScreenActivity).isBusy = false
             }
         })
     }

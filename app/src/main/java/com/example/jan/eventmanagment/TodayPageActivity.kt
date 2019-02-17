@@ -26,6 +26,8 @@ class TodayPageActivity : AppCompatActivity() {
 
     var client = RetrofitService().client
 
+    var isBusy = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_today_page)
@@ -40,6 +42,7 @@ class TodayPageActivity : AppCompatActivity() {
     }
 
     private fun loadUserEvents() {
+        isBusy = true
         val call = client.getTodayEvents(currentStudentId)
         call.enqueue(object : Callback<List<Event>> {
             override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
@@ -54,17 +57,21 @@ class TodayPageActivity : AppCompatActivity() {
                         layout.eventtoday_item_view
                     )
                 }
+                isBusy = false
             }
 
             override fun onFailure(call: Call<List<Event>>, t: Throwable) {
                 Log.d("loadUserEvents", t.toString())
                 Toast.makeText(this@TodayPageActivity, "Error loading Data", Toast.LENGTH_SHORT).show()
+                isBusy = false
             }
         })
     }
 
     fun onClickGoToEventFunction(v: View) {
-        val intent = Intent(this@TodayPageActivity, HomeScreenActivity::class.java)
-        startActivity(intent)
+        if(!isBusy) {
+            val intent = Intent(this@TodayPageActivity, HomeScreenActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -19,6 +19,8 @@ class HomeScreenActivity : AppCompatActivity() {
     var retro = RetrofitService()
     var client: API = retro.client
 
+    var isBusy = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,27 +33,27 @@ class HomeScreenActivity : AppCompatActivity() {
 //
         student_header.init(currentStudentName, currentStudentId)
 
-
-        main_nav.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> {
-                    setFragment(Fragment_Home())
-                    findViewById<View>(R.id.nav_home).isClickable = false
-                    findViewById<View>(R.id.nav_EventHome).isClickable = true
-
+            main_nav.setOnNavigationItemSelectedListener { item ->
+                when (item.itemId) {
+                    R.id.nav_home -> {
+                        if(!isBusy) {
+                            setFragment(Fragment_Home())
+                            findViewById<View>(R.id.nav_home).isClickable = false
+                            findViewById<View>(R.id.nav_EventHome).isClickable = true
+                        }
+                    }
+                    R.id.nav_EventHome -> {
+                        if(!isBusy) {
+                            setFragment(Fragment_EventHome())
+                            findViewById<View>(R.id.nav_EventHome).isClickable = false
+                            findViewById<View>(R.id.nav_home).isClickable = true
+                        }
+                    }
                 }
-                R.id.nav_EventHome -> {
-                    setFragment(Fragment_EventHome())
-                    findViewById<View>(R.id.nav_EventHome).isClickable = false
-                    findViewById<View>(R.id.nav_home).isClickable = true
-
-
-                }
+                true
             }
-            true
         }
 
-    }
     private fun setFragment(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.main_frame, fragment)
