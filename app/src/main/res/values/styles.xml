@@ -1,11 +1,23 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="@style/Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryDark">@color/red</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <!--<style name="XXXXXXAppTheme" parent="@style/Theme.MaterialComponents.Light.DarkActionBar">-->
+
+    <!---->
+    <!--<style name="ProfileButton" parent="@style/android.support.design.button.MaterialButton">-->
+        <!--<item name="cornerRadius">25dp</item>-->
+        <!--<item name="backgroundTint">10dp</item>-->
+        <!--<item name="fontFamily">@font/bariol_regular</item>-->
+        <!--<item name="colorPrimary">@color/lightGrey</item>-->
+        <!---->
+    <!--</style>-->
+
 
 </resources>
