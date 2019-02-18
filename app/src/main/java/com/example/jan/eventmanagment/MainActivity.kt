@@ -3,10 +3,13 @@ package com.example.jan.eventmanagment
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.jan.eventmanagment.Extensions.API
+import com.example.jan.eventmanagment.Extensions.EventAdapter
+import com.example.jan.eventmanagment.Models.Event
+import kotlinx.android.synthetic.main.activity_main.RecyclerView1
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Call

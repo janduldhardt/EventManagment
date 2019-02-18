@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <TextView
+        android:id="@+id/text_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_disclaimer_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bariol_light"
+        android:paddingHorizontal="15dp"
+        android:text="These information will be sent to the event you enroll. All these information provided will be kept confidential."
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_profile" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_save_profile"
+        app:layout_constraintTop_toBottomOf="@+id/text_disclaimer_profile">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textedit_medical_condition_profile"
+                android:layout_width="0dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:textColorHint="@color/red"
+                app:counterEnabled="true"
+                app:counterMaxLength="100"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/gridLayout_foodType"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gridLayout_foodType">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Medical Condition"
+                    android:maxLines="5"
+                    android:text=""
+                    android:textColor="@color/black" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/text_foodtype_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/bariol_regular"
+                android:text="Food Type"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gridLayout_shirtsize" />
+
+            <GridLayout
+                android:id="@+id/gridLayout_shirtsize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:columnCount="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_shirt1_profile"
+                    android:tag="S"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:background="@drawable/profile_material_button_background"
+                    android:fontFamily="@font/bariol_regular"
+                    android:onClick="onClickSize"
+                    android:text="S"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_shirt2_profile"
+                    android:onClick="onClickSize"
+                    android:tag="M"
+
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="M"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_shirt3_profile"
+                    android:onClick="onClickSize"
+                    android:tag="L"
+
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="L"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_shirt4_profile"
+                    android:onClick="onClickSize"
+                    android:tag="XL"
+
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="XL"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_shirt5_profile"
+                    android:onClick="onClickSize"
+                    android:tag="XXL"
+
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="XXL"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_shirt6_profile"
+                    android:onClick="onClickSize"
+                    android:tag="3XL"
+
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="3XL"
+                    app:cornerRadius="25dp" />
+
+            </GridLayout>
+
+            <GridLayout
+                android:id="@+id/gridLayout_foodType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:columnCount="2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_foodtype_profile">
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_food1_profile"
+                    android:onClick="onClickFood"
+                    android:tag="NORMAL"
+
+                    android:layout_width="140dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="Normal"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_food2_profile"
+                    android:onClick="onClickFood"
+                    android:tag="VEGETARIAN"
+
+                    android:layout_width="140dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="Vegetarian"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_food3_profile"
+                    android:tag="ISLAM"
+
+                    android:onClick="onClickFood"
+                    android:layout_width="140dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="Islam"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_food4_profile"
+                    android:tag="NO SPICY"
+
+                    android:onClick="onClickFood"
+                    android:layout_width="140dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="No Spicy"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_food5_profile"
+                    android:onClick="onClickFood"
+                    android:tag="NO EGGS"
+
+                    android:layout_width="140dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="No Eggs"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_food6_profile"
+                    android:onClick="onClickFood"
+                    android:tag="NO PEANUTS"
+
+                    android:layout_width="140dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="No Peanuts"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_food7_profile"
+                    android:tag="NO MILK"
+
+                    android:onClick="onClickFood"
+                    android:layout_width="140dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="No Milk"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_food8_profile"
+                    android:onClick="onClickFood"
+                    android:tag="NO SHELLFISH"
+
+                    android:layout_width="140dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="No Shellfish"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_food9_profile"
+                    android:onClick="onClickFood"
+                    android:tag="NO WHEAT"
+
+                    android:layout_width="140dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="No Wheat"
+                    app:cornerRadius="25dp" />
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/button_food10_profile"
+                    android:onClick="onClickFood"
+                    android:tag="OTHER"
+
+                    android:layout_width="140dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/lightGrey"
+                    android:fontFamily="@font/bariol_regular"
+                    android:text="Other"
+                    app:cornerRadius="25dp" />
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/bariol_regular"
+                android:text="Shirt Size"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_disclaimer_profile" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/button_save_profile"
+        android:onClick="onClickSave"
+        android:layout_width="0dp"
+        android:layout_height="59dp"
+        android:backgroundTint="@color/red"
+        android:fontFamily="@font/bariol_regular"
+        android:text="SAVE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

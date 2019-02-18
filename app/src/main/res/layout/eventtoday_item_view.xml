@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="155dp"
+    android:layout_margin="8dp"
+    cardView:cardCornerRadius="10dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="176dp">
+
+
+        <ImageView
+            android:id="@+id/image_eventImage"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:color/white" />
+
+        <!--<ImageView-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="96dp"-->
+        <!--android:alpha="0.4"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:srcCompat="@android:color/black" />-->
+
+
+        <TextView
+            android:id="@+id/text_eventName"
+            android:layout_width="247dp"
+            android:layout_height="26dp"
+            android:fontFamily="@font/bariol_bold"
+            android:paddingLeft="8dp"
+            android:text="AU CAMP 2018"
+            android:textColor="@color/black"
+            android:textSize="27dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_eventImage" />
+
+        <TextView
+            android:id="@+id/text_eventDate"
+            android:layout_width="wrap_content"
+
+            android:layout_height="15dp"
+            android:fontFamily="@font/bariol_bold"
+            android:paddingLeft="8dp"
+            android:singleLine="true"
+            android:text="Begin 9:00"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_eventName" />
+
+        <TextView
+            android:id="@+id/text_eventLocation"
+            android:layout_width="265dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/bariol_regular"
+            android:singleLine="true"
+            android:text="Assumption University Cathedral of Learning"
+            android:textColor="@color/black"
+            android:textSize="10dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintStart_toEndOf="@+id/text_eventDate"
+            app:layout_constraintTop_toBottomOf="@+id/text_eventName" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.v7.widget.CardView>

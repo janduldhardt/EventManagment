@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -71,7 +70,7 @@
                 android:id="@+id/preview_icon_time"
                 android:layout_width="19sp"
                 android:layout_height="19sp"
-                android:src="@drawable/baseline_access_time_black_18dp"
+                android:src="@drawable/ic_action_clock"
                 android:layout_gravity="center"
                 />
 
@@ -204,7 +203,7 @@
                         android:id="@+id/preview_icon_phone"
                         android:layout_width="19sp"
                         android:layout_height="19sp"
-                        android:src="@drawable/baseline_contact_phone_black_18dp"
+                        android:src="@drawable/ic_phone"
                         android:layout_gravity="center"
                         />
 
@@ -222,14 +221,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/preview_icon_facebook"
-                        android:layout_width="19sp"
-                        android:layout_height="19sp"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/facebookicon"
-                        android:layout_gravity="center"
-                        />
+                    <!--<ImageView-->
+                        <!--android:id="@+id/preview_icon_facebook"-->
+                        <!--android:layout_width="19sp"-->
+                        <!--android:layout_height="19sp"-->
+                        <!--android:adjustViewBounds="true"-->
+                        <!--android:src="@drawable/facebookicon"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--/>-->
 
                     <TextView
                         android:id="@+id/preview_facebook"
@@ -244,13 +243,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/preview_icon_line"
-                        android:layout_width="19sp"
-                        android:layout_height="19sp"
-                        android:src="@drawable/lineicon"
-                        android:layout_gravity="center"
-                        />
+                    <!--<ImageView-->
+                        <!--android:id="@+id/preview_icon_line"-->
+                        <!--android:layout_width="19sp"-->
+                        <!--android:layout_height="19sp"-->
+                        <!--android:src="@drawable/lineicon"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--/>-->
 
                     <TextView
                         android:id="@+id/preview_line"

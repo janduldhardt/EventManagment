@@ -1,7 +1,6 @@
 package com.example.jan.eventmanagment
 
-import org.junit.Test
-
+import org.junit.*
 import org.junit.Assert.*
 
 /**
